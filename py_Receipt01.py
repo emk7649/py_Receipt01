@@ -6,7 +6,7 @@ aphorism = [
     '子在川上曰 逝者如斯夫 不舍晝夜',
 ]
 number_random = random.randrange(0,len(aphorism))
-print('version:0.4.0')
+print('version:0.5.0')
 print(aphorism[number_random])
 print('https://github.com/emk7649/py_Receipt01')
 print('expired at 2024.01.01')
@@ -36,6 +36,11 @@ result_str = result.decode('utf-8')
 now = parse(result_str)
 #if now > datetime.datetime(2022, 12, 31):
 #    exit(0)
+
+import configparser
+config = configparser.ConfigParser() # for .ini file
+config.read('user.ini', 'cp949') # file 없으면 예외처리
+user = config['USER']
 
 # name of jpg
 output_string = StringIO()
@@ -68,11 +73,11 @@ for i, page in enumerate(pages):
     
     # xlsm 작업 준비
     line_xlsm = []
-    line_xlsm.append('비씨6666')
+    line_xlsm.append(user['card'])
     date = parse(strings_byLine[3])
     line_xlsm.append(date)
-    line_xlsm.append('최강그룹')
-    line_xlsm.append('홍길동')
+    line_xlsm.append(user['group'])
+    line_xlsm.append(user['name'])
     line_xlsm.append('복리후생비')  #??
     line_xlsm.append(strings_byLine[10])
     line_xlsm.append(1)  #??

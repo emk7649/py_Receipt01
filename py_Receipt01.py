@@ -2,14 +2,17 @@
 
 #20230103 명언 print
 import random
+import datetime
+import time
 aphorism = [
     '子在川上曰 逝者如斯夫 不舍晝夜',
 ]
 number_random = random.randrange(0,len(aphorism))
-print('version:0.5.1')
+print('version:0.5.2')
 print(aphorism[number_random])
 print('https://github.com/emk7649/py_Receipt01')
-print('expired on 2024.01.01')
+expireDate = datetime.datetime(2024, 12, 31)
+print(''.join(['expired at ', str(expireDate + datetime.timedelta(days=1))]))
 
 import os
 from pdf2image import convert_from_path
@@ -24,7 +27,6 @@ from pdfminer.pdfpage import PDFPage
 from pdfminer.pdfparser import PDFParser
 
 import openpyxl
-import datetime
 from dateutil.parser import parse # for 날짜시간 format
 #from operator import itemgetter # for sort list of lists?? 없어도 되는 듯??
 from copy import copy # cell.style copy할 때 필요함
@@ -34,7 +36,9 @@ res = urlopen('http://just-the-time.appspot.com/')
 result = res.read().strip()
 result_str = result.decode('utf-8')
 now = parse(result_str)
-if now > datetime.datetime(2023, 12, 31):
+if now > expireDate:
+    print('expired')
+    time.sleep(1)
     exit(0)
 
 import configparser

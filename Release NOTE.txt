@@ -1,0 +1,35 @@
+[2023.05.05]
+    -. 매출전표 pdf 서식변경에 따른 수정
+	-. 거래금액 - 가맹점명 사이에 '자원 순환 보조금' row 추가되어 가맹점명 index 변경 10 → 11
+
+[2022.10.24]
+    -. xlsm에 직접 저장할 수 있도록 작업
+	-. pip install xlrd(FAIL)   → ValueError: Your version of xlrd is 2.0.1. In xlrd >= 2.0, only the xls format is supported. Install openpyxl instead.
+	-. pip install openpyxl
+
+[2022.08.31]
+    -. pdfminer
+    -. pdf OCR하여 날짜이름으로 파일 저장하기
+
+[2022.07.06] 
+    -. pdf2image
+    -. pdf 페이지별로 나눠서 jpg로 저장
+
+[2022.07.06] pdf2image
+1. 필요 라이브러리 설치
+   1-a. 리눅스
+	!pip install pdf2image
+	!apt-get install poppler-utils
+   1-b. 윈도우
+	pip install pdf2image
+	poppler 홈페이지에서 zip 파일 받아서 압축 해제
+
+2.
+   2-b. 윈도우
+   환경변수 설정
+	환경변수에 poppler 경로 입력
+	예시) ﻿D:\bin\poppler21.02.0\Library\bin
+
+윈도우 참조
+https://blog.naver.com/PostView.nhn?isHttpsRedirect=true&blogId=chandong83&logNo=222262274082&parentCategoryNo=&categoryNo=&viewDate=&isShowPopularPosts=false&from=postView
+(20221024, pdf로 웹페이지 저장해놓음. pdf2image_poppler.pdf)
